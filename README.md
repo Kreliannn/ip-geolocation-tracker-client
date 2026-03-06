@@ -1,4 +1,19 @@
-step 1: open directory
-step: 2: npm i
-step 3: npm run dev
-step 4: open url
+# IP & Geolocation Tracker
+
+A simple Vite + React + Tailwind project with Node.js backend and MongoDB.
+
+---
+
+## Quick Setup
+
+1. **Open the project directory**  
+   Navigate to your project folder in your terminal or command prompt.
+
+2. **Install dependencies**  
+  npm i
+
+3. **Run the project**
+   npm run dev
+
+4. Open in browser
+   Open the URL shown in the terminal
