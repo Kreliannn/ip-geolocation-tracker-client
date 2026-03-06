@@ -11,7 +11,7 @@ A simple Vite + React + Tailwind project with Node.js backend and MongoDB.
 
 2. **Install dependencies**
    
-  npm i
+   npm i
 
 4. **Run the project**
    
