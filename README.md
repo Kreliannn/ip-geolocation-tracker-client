@@ -18,4 +18,5 @@ A simple Vite + React + Tailwind project with Node.js backend and MongoDB.
    npm run dev
 
 5. Open in browser
+   
    Open the URL shown in the terminal
