@@ -9,9 +9,9 @@ import type { accountInterface } from "./types/account.type";
 
 export default function LoginPage() {
 
-  const [accounts, setAccounts] = useState<accountInterface[]>([]);
+  const [accounts, setAccounts] = useState<accountInterface[] | null>(null);
 
-  const { data , refetch, isError } = useQuery({
+  const { data , refetch } = useQuery({
     queryKey: ["accounts"],
     queryFn: () => axiosInstance.get("/availableAccounts"),
     refetchInterval : 5000,
@@ -43,7 +43,7 @@ export default function LoginPage() {
       refetch()
     },
     onError: (error: any) => {
-      showError(error.response?.data?.message || "Login failed");
+      showError(error.response?.data?.message || "Seed User failed");
     },
   });
 
@@ -71,11 +71,9 @@ export default function LoginPage() {
     setPassword("12345")
   };
 
-  return (
+  if(!accounts) return(
     <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 relative">
-
-      {isError && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
           <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 text-center max-w-sm">
             <h2 className="text-lg font-semibold text-white mb-2">
               Server Sleeping
@@ -91,8 +89,13 @@ export default function LoginPage() {
             </p>
           </div>
         </div>
-      )}
+    </div>
+  )
 
+  return (
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 relative">
+
+    
       <div className="absolute top-5 left-5 max-h-64 w-60 overflow-y-auto bg-slate-800/70 p-3 rounded-lg">
         <p className="text-slate-200 font-semibold mb-2 text-sm"> {accounts.length == 0 ? "No Available Account": "Available User Accounts"}  </p>
         {accounts.map((account) => (
