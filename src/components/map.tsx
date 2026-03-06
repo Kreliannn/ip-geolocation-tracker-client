@@ -1,9 +1,9 @@
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { useEffect } from "react";
-// ✅ FIX 1: Import Leaflet CSS — this is the #1 cause of "destroyed" map UI
+
 import "leaflet/dist/leaflet.css";
 
-// ✅ FIX 2: Fix missing default marker icons (Leaflet + Vite/Webpack issue)
+
 import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// ✅ FIX 3: Separate component to recenter map when loc changes
+
 function RecenterMap({ lat, lng }: { lat: number; lng: number }) {
   const map = useMap();
   useEffect(() => {
@@ -25,7 +25,7 @@ function RecenterMap({ lat, lng }: { lat: number; lng: number }) {
   return null;
 }
 
-// ✅ FIX 4: Map fills its container — no fixed px sizes that overflow
+
 function Map({ mapKey, loc }: { mapKey: string; loc: string }) {
   const [latStr, lngStr] = loc.split(",");
   const lat = Number(latStr);
@@ -36,11 +36,12 @@ function Map({ mapKey, loc }: { mapKey: string; loc: string }) {
       key={mapKey}
       center={[lat, lng]}
       zoom={13}
-      style={{ height: "100%", width: "100%" }} // ✅ fill parent div
+      style={{ height: "100%", width: "100%" }} 
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
       <Marker position={[lat, lng]} />
       <RecenterMap lat={lat} lng={lng} />
     </MapContainer>

@@ -112,7 +112,7 @@ export default function HomePage() {
 return (
   <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
 
-    {/* ── Top nav ── */}
+   
     <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur  top-0 z-50">
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-2 text-sky-400">
@@ -133,13 +133,13 @@ return (
 
     <main className="max-w-5xl mx-auto px-6 py-10 flex flex-col gap-10">
 
-      {/* ── Search card ── */}
+    
       <section ref={resultRef}>
         <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
           IP Lookup
         </p>
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center justify-between gap-4">
-          {/* Input + Lookup */}
+        
           <div className="flex items-center gap-2 flex-1">
             <div className="relative flex-1 max-w-sm">
               <Search
@@ -165,7 +165,7 @@ return (
             </button>
           </div>
 
-          {/* Clear */}
+        
           <button
             onClick={clear}
             disabled={geoLocLoading}
@@ -177,7 +177,7 @@ return (
         </div>
       </section>
 
-      {/* ── Result ── */}
+    
       {ipGeoLoc && (
         <section  >
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
@@ -214,7 +214,7 @@ return (
               ))}
             </div>
 
-            {/* Map */}
+   
             <div
               className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden"
               style={{ height: "420px" }}
@@ -225,7 +225,6 @@ return (
         </section>
       )}
 
-      {/* ── History ── */}
       <section>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -255,7 +254,7 @@ return (
               key={item._id}
               className="flex items-center gap-3 px-5 py-3 hover:bg-slate-800/50 transition-colors"
             >
-              {/* Checkbox */}
+         
               <input
                 type="checkbox"
                 checked={isSelected(item._id)}
@@ -266,7 +265,7 @@ return (
                 className="accent-sky-500 w-4 h-4 rounded cursor-pointer"
               />
 
-              {/* IP badge */}
+            
               <div className="flex items-center gap-1.5 flex-1 min-w-0">
                 <Globe size={13} className="text-sky-400 shrink-0" />
                 <span className="text-sm font-mono text-slate-100 truncate">
@@ -274,13 +273,13 @@ return (
                 </span>
               </div>
 
-              {/* Timestamp */}
+           
               <div className="flex items-center gap-1.5 text-xs text-slate-500 shrink-0">
                 <Clock size={12} />
                 {item.searchedAt}
               </div>
 
-              {/* View button */}
+      
               <button
                 className="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 border border-sky-900/50 hover:border-sky-700 px-2.5 py-1.5 rounded-lg transition-colors shrink-0"
                 onClick={(e) => {

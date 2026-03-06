@@ -8,4 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/', // <-- TOP LEVEL, not inside build
+  build: {
+    outDir: 'dist', // default
+    rollupOptions: {
+      input: '/index.html',
+    },
+  },
 })
